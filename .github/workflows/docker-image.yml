@@ -1,4 +1,4 @@
-name: Go lang with Docker
+name: Go lang with Docker image
 
 on:
   push:
