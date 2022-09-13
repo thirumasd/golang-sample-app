@@ -11,7 +11,7 @@ func TestGreetingSpecific(t *testing.T) {
 
 func TestGreetingDefault(t *testing.T) {
 	greeting := CreateGreeting("")
-	if greeting != "Hello, Guest\n" {
+	ifgreeting != "Hello, Guest\n" {
 		t.Errorf("Greeting was incorrect, got: %s, want: %s.", greeting, "Hello, Guest\n")
 	}
 }
