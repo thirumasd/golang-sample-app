@@ -1,4 +1,4 @@
-name: Go lang with Docker image
+name: Go lang and push the Docker image to GCP
 
 on:
   push:
