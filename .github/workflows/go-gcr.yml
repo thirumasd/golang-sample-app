@@ -34,7 +34,7 @@ jobs:
       
     - name: Push image to GCR
       run: |
-          gcloud auth configure-docker
+          gcloud auth configure-docker us-central1-docker.pkg.dev
           docker build -t us-central1-docker.pkg.dev/cvs-pcf-to-gke-migration/hello-repo1/gotest1:gv5 .
           docker push us-central1-docker.pkg.dev/cvs-pcf-to-gke-migration/hello-repo1/gotest1:gv5
          
