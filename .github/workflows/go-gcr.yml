@@ -1,4 +1,4 @@
-name: Go lang and push the Docker image to GCP
+name: Go lang and push image to GCR & GAR
 
 on:
   push:
@@ -33,6 +33,12 @@ jobs:
           credentials_json: '${{ secrets.GCLOUD_SERVICE_KEY }}'
       
     - name: Push image to GCR
+      run: |
+          gcloud auth configure-docker
+          docker build -t gcr.io/cvs-pcf-to-gke-migration/gotest1:gv5 .
+          docker push gcr.io/cvs-pcf-to-gke-migration/gotest1:gv5
+          
+    - name: Push image to GAR
       run: |
           gcloud auth configure-docker us-central1-docker.pkg.dev
           docker build -t us-central1-docker.pkg.dev/cvs-pcf-to-gke-migration/hello-repo1/gotest1:gv5 .
