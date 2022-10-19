@@ -27,7 +27,7 @@ jobs:
     - name: Build the Docker image
       #env:
         #IMAGE_TAG: $$(git log -1 --pretty=%!H(MISSING))
-      run: docker build . --file Dockerfile --tag sdthiruma/demo-apps:v1-$(date +'%Y-%m-%d_%H-%M')
+      run: docker build . --file Dockerfile --tag sdthiruma/demo-apps:1.0.${{ github.run_number }}
     
     - name: docker login
       env:
@@ -37,4 +37,4 @@ jobs:
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD 
  
     - name: push the docker image to docker hub
-      run: docker push sdthiruma/demo-apps:v1-$(date +'%Y-%m-%d_%H-%M')
+      run: docker push sdthiruma/demo-apps:1.0.${{ github.run_number }}
