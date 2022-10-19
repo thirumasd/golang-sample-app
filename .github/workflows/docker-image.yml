@@ -27,9 +27,9 @@ jobs:
       run: go test -v ./...
 
     - name: Build the Docker image
-      env:
-        IMAGE_TAG: ${{ github.sha }}
-      run: docker build . --file Dockerfile --tag sdthiruma/demo-apps:1.1-$IMAGE_TAG
+      #env:
+        #IMAGE_TAG: ${{ github.sha }}
+      run: docker build . --file Dockerfile --tag sdthiruma/demo-apps:1.1-${{ github.sha }}
     
     - name: docker login
       env:
@@ -39,4 +39,4 @@ jobs:
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD 
  
     - name: push the docker image to docker hub
-      run: docker push sdthiruma/demo-apps:1.1-$IMAGE_TAG
+      run: docker push sdthiruma/demo-apps:1.1-${{ github.sha }}
