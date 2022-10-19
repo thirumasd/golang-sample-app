@@ -28,7 +28,7 @@ jobs:
 
     - name: Build the Docker image
       env:
-        TAG_NAME:  ${{ date +'%Y-%m-%d_%H-%M' }}
+        TAG_NAME:  $(date +'%Y-%m-%d_%H-%M')
       run: docker build . --file Dockerfile --tag sdthiruma/demo-apps:1.1-$TAG_NAME
     
     - name: docker login
