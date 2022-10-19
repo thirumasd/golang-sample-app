@@ -25,7 +25,7 @@ jobs:
       run: go test -v ./...
 
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag sdthiruma/demo-apps:v$(date +'%Y-%m-%d_%H-%M')
+      run: docker build . --file Dockerfile --tag sdthiruma/demo-apps:$(git-buildnumber)
     
     - name: docker login
       env:
@@ -35,4 +35,4 @@ jobs:
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD 
  
     - name: push the docker image to docker hub
-      run: docker push sdthiruma/demo-apps:v$(date +'%Y-%m-%d_%H-%M')
+      run: docker push sdthiruma/demo-apps:$(git-buildnumber)
